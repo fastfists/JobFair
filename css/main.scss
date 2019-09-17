@@ -3,6 +3,9 @@
     font-style: normal;
     font-weight: normal;
     color: #141414;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
 }
 
 body {
@@ -36,7 +39,7 @@ p {
 
 nav {
     width: 100%;
-    margin: 0px;
+    height: 10vh;
     background: #AEB7B3;
     opacity: 0.7;
     display: flex;
@@ -44,12 +47,7 @@ nav {
     align-items: center;
 
     ul {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        padding: 0px 20px;
-        margin: 20px;
-        list-style: none;
+        margin-left: 5rem;
 
         a {
             padding: 5px;
@@ -61,22 +59,8 @@ nav {
     color: #3F3D56;
 }
 
-a.blue-btn {
+@mixin button {
     border-radius: 10px;
-    background: #6C63FF;
-    padding: 20px 24px;
-    color: black;
-    text-decoration: none;
-    display: block;
-    text-align: center;
-    width: 200px;
-    display: inline-block;
-    font-size: 25px !important;
-}
-
-a.purple-btn {
-    border-radius: 10px;
-    background: #BD79C9;
     padding: 20px 10px;
     color: black;
     text-decoration: none;
@@ -84,18 +68,29 @@ a.purple-btn {
     text-align: center;
     display: inline-block;
     font-size: 25px !important;
+    opacity: 1 !important;
+}
+
+a.blue-btn {
+    @include button();
+    background: #6C63FF;
+}
+
+a.purple-btn {
+    @include button();
+    background: #BD79C9;
 }
 
 section#hero {
-    padding-top: 100px;
+    height: 100vh;
     background: linear-gradient(180deg, rgba(0, 63, 145, 0.83) 0%, rgba(59, 104, 157, 0.546271) 58.82%, rgba(174, 183, 179, 0) 100%);
     display: flex;
-    margin: 0;
+    position: relative;
     justify-content: space-around;
+    padding: 115px;
 
     h1 {
         font-weight: normal;
-        line-height: 30px;
     }
 
     h2 {
@@ -103,31 +98,23 @@ section#hero {
         max-width: 340px;
     }
 
-    padding-left: 115px;
+    .buttons {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        a {
+            margin-top: 2rem;
+        }
+    }
+
 }
 
 section#benfits {
-
-    .circle {
-        position: relative;
-        top: -100px;
-        z-index: -1;
-        display: block;
-        margin: auto;
-    }
 
     h2 {
         text-align: center;
         margin-top: 129px;
         margin-bottom: 129px;
-    }
-
-    .row {
-        margin: 0px 129px;
-    }
-
-    .check-mark {
-        display: inline-block;
     }
 
     h5 {
@@ -137,6 +124,21 @@ section#benfits {
         display: inline-block;
         font-weight: normal;
         font-style: normal;
+    }
+    .circle {
+        position: relative;
+        top: -100px;
+        z-index: -1;
+        display: block;
+        margin: auto;
+    }
+
+    .row {
+        margin: 0px 129px;
+    }
+
+    .check-mark {
+        display: inline-block;
     }
 
     p {
